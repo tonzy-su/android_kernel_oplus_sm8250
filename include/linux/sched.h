@@ -1644,6 +1644,19 @@ struct task_struct {
 	/* CPU-specific state of this task: */
 	struct thread_struct		thread;
 
+
+#if defined(CONFIG_KSU_SUSFS)
+	ANDROID_KABI_USE(9, u64 susfs_task_state);
+	ANDROID_KABI_USE(10, u64 susfs_last_fake_mnt_id);
+#endif // #if defined(CONFIG_KSU_SUSFS)
+
+#if defined(CONFIG_KSU_SUSFS) && !defined(ANDROID_KABI_RESERVE)
+	u64 susfs_task_state;
+#endif
+#if defined(CONFIG_KSU_SUSFS) && !defined(ANDROID_KABI_RESERVE)
+	u64 susfs_last_fake_mnt_id;
+#endif
+
 	/*
 	 * WARNING: on x86, 'thread_struct' contains a variable-sized
 	 * structure.  It *MUST* be at the end of 'task_struct'.
