@@ -139,11 +139,15 @@ kernel/configs/android-*.cfg
 # ln the wakelock_profiler
 
 # Local builds
-build.sh
-/out
-build.txt
 
 #
 #Ignoring Android.bp link file
 #
 Android.bp
+*.sh
+*.txt
+*.zip
+/anykernel
+/out
+
+
